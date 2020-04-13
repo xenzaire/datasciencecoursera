@@ -1,0 +1,57 @@
+---
+title: "02 - R Programming - Week 2 - Assignment"
+author: "Deborah"
+date: "April 9, 2020"
+output:
+  md_document:
+    variant: markdown_github
+    toc: true
+    toc_depth: 2
+editor_options:
+  chunk_output_type: console
+---
+
+#Set Working Directory
+```{r}
+specdata <- ("D:/Data Science/Coursera/Data Science Specialization/R Programming Assignment/Week 2 Assignment/specdata/")
+```
+
+#Part 1 - Write Function for Pollutant Mean
+```{r}
+source("pollutantmean.R")
+pollutantmean(specdata, "sulfate", 1:10)
+pollutantmean(specdata, "nitrate", 70:72)
+pollutantmean(specdata, "nitrate", 23)
+```
+
+
+#Part 2 - Write a Function that Uses the Directory and Reports the Number of Completely Observed Cases
+```{r}
+source("complete.R")
+complete(specdata, 1)
+complete(specdata, c(2, 4, 8, 10, 12))
+complete(specdata, 30:25)
+complete(specdata, 3)
+```
+
+
+#Part 3 - Write a Function that Takes the Directory and a Threshold for Complete Cases and Calculates the Correlation Between Sulfate and Nitrate for Monitor Locations Where the Number of Completely Observed Cases is Greater than the Threshold
+```{r}
+source("corr.R")
+source("complete.R")
+cr <- corr("specdata", 150)
+head(cr)
+summary(cr)
+
+cr <- corr("specdata", 400)
+head(cr)
+summary(cr)
+
+cr <- corr("specdata", 5000)
+summary(cr)
+length(cr)
+
+cr <- corr("specdata")
+summary(cr)
+length(cr)
+```
