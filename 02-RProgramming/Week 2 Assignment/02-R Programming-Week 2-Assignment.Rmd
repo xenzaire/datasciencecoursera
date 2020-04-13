@@ -11,6 +11,8 @@ editor_options:
   chunk_output_type: console
 ---
 
+#Note: Data file already manually unzipped
+
 #Set Working Directory
 ```{r}
 specdata <- ("D:/Data Science/Coursera/Data Science Specialization/R Programming Assignment/Week 2 Assignment/specdata/")
