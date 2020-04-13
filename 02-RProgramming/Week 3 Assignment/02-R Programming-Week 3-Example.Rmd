@@ -1,0 +1,38 @@
+---
+title: "02 - R Programming - Week 3 - Example"
+author: "Deborah"
+date: "March 8, 2020"
+output:
+  md_document:
+    variant: markdown_github
+    toc: true
+    toc_depth: 2
+editor_options:
+  chunk_output_type: console
+---
+
+#Create makeVector function
+
+makeVector creates a special "vector", whish is really a list containing a function to:
+- set the value of a vector  
+- get the value of the vector  
+- set the value of the mean  
+- get the value of the mean  
+
+```{r}
+makeVector <- function (x = numeric()) {
+  m <- NULL
+  set <- function (y) {
+    #assign y to x in an environment that is different from the current
+    x <<- y
+    m <<- NULL
+  }
+  get <- function() x
+  setmean <- function(mean) m <<- mean
+  getmean <- function() m
+  list(set = set, get = get,
+       setmean = setmean
+       getmean = getmean)
+}
+```
+
