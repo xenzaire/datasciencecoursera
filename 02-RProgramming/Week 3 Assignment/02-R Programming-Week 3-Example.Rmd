@@ -13,26 +13,45 @@ editor_options:
 
 #Create makeVector function
 
-makeVector creates a special "vector", whish is really a list containing a function to:
+####makeVector creates a special "vector", whish is really a list containing a function to:
 - set the value of a vector  
 - get the value of the vector  
 - set the value of the mean  
 - get the value of the mean  
 
 ```{r}
-makeVector <- function (x = numeric()) {
+makeVector <- function (x = numeric()) { #Default x to an empty numeric vector
   m <- NULL
   set <- function (y) {
-    #assign y to x in an environment that is different from the current
-    x <<- y
-    m <<- NULL
+    x <<- y #assign y to the x object in the parent environment
+    m <<- NULL #clears any value of m cached previously when running cachemean
   }
   get <- function() x
   setmean <- function(mean) m <<- mean
   getmean <- function() m
   list(set = set, get = get,
-       setmean = setmean
+       setmean = setmean,
        getmean = getmean)
 }
 ```
+
+#Create cachemean function
+
+####cachemean function calculates the mean of the special "vector" created with makeVector. However, it first checks to see if the mean has already been calculated. If so, it gets the mean from the cache and skips the computation. Otherwise, it calculates the mean of the data and sets the value of the mean in the cache via the setmean function.
+
+```{r}
+cachemean <- function (x, ...) {
+  m <- x$getmean()
+  if(!is.null(m)) {
+    message("getting cached data")
+    return(m)
+  }
+  data <- x$get()
+  m <- mean(data, ...)
+  x$setmean(m)
+  m
+}
+```
+
+See full explanation of the makeVector and cachemean [here](https://github.com/lgreski/datasciencectacontent/blob/master/markdown/rprog-breakingDownMakeVector.md)
 
