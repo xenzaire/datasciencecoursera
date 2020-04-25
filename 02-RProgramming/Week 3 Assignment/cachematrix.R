@@ -43,3 +43,10 @@ cacheSolve <- function(x, ...) {
   x$setInvMatrix(i)
   i
 }
+
+
+####The following is an example of the usage of these functions:
+x <- matrix(1:4, 2, 2)
+y <- makeCacheMatrix(x)
+cacheSolve(y)
+cacheSolve(y)
