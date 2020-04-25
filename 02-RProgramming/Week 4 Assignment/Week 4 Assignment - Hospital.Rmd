@@ -1,0 +1,88 @@
+---
+title: "02 - R Programming - Week 4 Assignment - Hospital"
+author: "Deborah"
+date: "April 24, 2020"
+output:
+  md_document:
+    variant: markdown_github
+    toc: true
+    toc_depth: 2
+editor_options:
+  chunk_output_type: console
+---
+
+#1. Plot the 30-day Mortality Rates for Heart Attack
+
+##Load dataset and observe structure
+```{r}
+outcome <- read.csv("D:/Data Science/Coursera/Data Science Specialization/R Programming Assignment/datasciencecoursera/02-RProgramming/Week 4 Assignment/Data/outcome-of-care-measures.csv", colClasses = "character")
+head(outcome)
+str(outcome)
+```
+
+##Fix column classes
+```{r}
+outcome[,11] <- as.numeric(outcome[,11])
+outcome[,13] <- as.numeric(outcome[,13])
+outcome[,14] <- as.numeric(outcome[,14])
+outcome[,15] <- as.numeric(outcome[,15])
+outcome[,17] <- as.numeric(outcome[,17])
+outcome[,19] <- as.numeric(outcome[,19])
+outcome[,20] <- as.numeric(outcome[,20])
+outcome[,21] <- as.numeric(outcome[,21])
+outcome[,23] <- as.numeric(outcome[,23])
+outcome[,25] <- as.numeric(outcome[,25])
+outcome[,26] <- as.numeric(outcome[,26])
+outcome[,27] <- as.numeric(outcome[,27])
+outcome[,29] <- as.numeric(outcome[,29])
+outcome[,31] <- as.numeric(outcome[,31])
+outcome[,32] <- as.numeric(outcome[,32])
+outcome[,34] <- as.numeric(outcome[,34])
+outcome[,35] <- as.numeric(outcome[,35])
+outcome[,36] <- as.numeric(outcome[,36])
+outcome[,37] <- as.numeric(outcome[,37])
+outcome[,38] <- as.numeric(outcome[,38])
+outcome[,39] <- as.numeric(outcome[,39])
+outcome[,41] <- as.numeric(outcome[,41])
+outcome[,43] <- as.numeric(outcome[,43])
+outcome[,44] <- as.numeric(outcome[,44])
+outcome[,45] <- as.numeric(outcome[,45])
+
+outcome[,12] <- as.factor(outcome[,12])
+outcome[,18] <- as.factor(outcome[,18])
+outcome[,24] <- as.factor(outcome[,24])
+outcome[,30] <- as.factor(outcome[,30])
+outcome[,36] <- as.factor(outcome[,36])
+outcome[,42] <- as.factor(outcome[,42])
+```
+
+##Plot 30 day mortality rates for heart attack
+```{r}
+hist(outcome[,11], col = "red")
+```
+
+#Find the best hospital in a state
+```{r}
+source("best.R")
+best("TX", "heart attack")
+best("TX", "heart failure")
+best("MD", "heart attack")
+best("MD", "pneumonia")
+```
+
+#Rank hospitals by outcome in a state
+```{r}
+source("rankhospital.R")
+rankhospital("TX", "heart failure", 4)
+rankhospital("MD", "heart attack", "worst")
+rankhospital("MN", "heart attack", 5000)
+```
+
+#Rank hospitals in all states
+```{r}
+source("rankall.R")
+head(rankall("heart attack", 20), 10)
+tail(rankall("pneumonia", "worst"), 3)
+tail(rankall("heart failure"), 10)
+```
+
