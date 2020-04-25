@@ -1,6 +1,6 @@
 -   [1. Plot the 30-day Mortality Rates for Heart Attack](#plot-the-30-day-mortality-rates-for-heart-attack)
     -   [Load dataset and observe structure](#load-dataset-and-observe-structure)
-    -   [Fix column classes](#fix-column-classes)
+    -   [Fix column classes for column 11](#fix-column-classes-for-column-11)
     -   [Plot 30 day mortality rates for heart attack](#plot-30-day-mortality-rates-for-heart-attack)
 -   [Find the best hospital in a state](#find-the-best-hospital-in-a-state)
 -   [Rank hospitals by outcome in a state](#rank-hospitals-by-outcome-in-a-state)
@@ -343,166 +343,11 @@ str(outcome)
     ##  $ Number.of.Patients...Hospital.30.Day.Readmission.Rates.from.Pneumonia                : chr  "400" "374" "842" "254" ...
     ##  $ Footnote...Hospital.30.Day.Readmission.Rates.from.Pneumonia                          : chr  "" "" "" "" ...
 
-Fix column classes
-------------------
+Fix column classes for column 11
+--------------------------------
 
 ``` r
 outcome[,11] <- as.numeric(outcome[,11])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,13] <- as.numeric(outcome[,13])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,14] <- as.numeric(outcome[,14])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,15] <- as.numeric(outcome[,15])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,17] <- as.numeric(outcome[,17])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,19] <- as.numeric(outcome[,19])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,20] <- as.numeric(outcome[,20])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,21] <- as.numeric(outcome[,21])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,23] <- as.numeric(outcome[,23])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,25] <- as.numeric(outcome[,25])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,26] <- as.numeric(outcome[,26])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,27] <- as.numeric(outcome[,27])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,29] <- as.numeric(outcome[,29])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,31] <- as.numeric(outcome[,31])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,32] <- as.numeric(outcome[,32])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,34] <- as.numeric(outcome[,34])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,35] <- as.numeric(outcome[,35])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,36] <- as.numeric(outcome[,36])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,37] <- as.numeric(outcome[,37])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,38] <- as.numeric(outcome[,38])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,39] <- as.numeric(outcome[,39])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,41] <- as.numeric(outcome[,41])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,43] <- as.numeric(outcome[,43])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,44] <- as.numeric(outcome[,44])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,45] <- as.numeric(outcome[,45])
-```
-
-    ## Warning: NAs introduced by coercion
-
-``` r
-outcome[,12] <- as.factor(outcome[,12])
-outcome[,18] <- as.factor(outcome[,18])
-outcome[,24] <- as.factor(outcome[,24])
-outcome[,30] <- as.factor(outcome[,30])
-outcome[,36] <- as.factor(outcome[,36])
-outcome[,42] <- as.factor(outcome[,42])
 ```
 
 Plot 30 day mortality rates for heart attack
@@ -522,23 +367,11 @@ source("best.R")
 best("TX", "heart attack")
 ```
 
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
     ## [1] "CYPRESS FAIRBANKS MEDICAL CENTER"
 
 ``` r
 best("TX", "heart failure")
 ```
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
 
     ## [1] "FORT DUNCAN MEDICAL CENTER"
 
@@ -546,23 +379,11 @@ best("TX", "heart failure")
 best("MD", "heart attack")
 ```
 
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
     ## [1] "JOHNS HOPKINS HOSPITAL, THE"
 
 ``` r
 best("MD", "pneumonia")
 ```
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
 
     ## [1] "GREATER BALTIMORE MEDICAL CENTER"
 
@@ -574,35 +395,17 @@ source("rankhospital.R")
 rankhospital("TX", "heart failure", 4)
 ```
 
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
     ## [1] "DETAR HOSPITAL NAVARRO"
 
 ``` r
 rankhospital("MD", "heart attack", "worst")
 ```
 
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
     ## [1] "HARFORD MEMORIAL HOSPITAL"
 
 ``` r
 rankhospital("MN", "heart attack", 5000)
 ```
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
 
     ## [1] NA
 
@@ -613,12 +416,6 @@ Rank hospitals in all states
 source("rankall.R")
 head(rankall("heart attack", 20), 10)
 ```
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
 
     ##    Hospital.Name                         State
     ## AK "NA"                                  "NA" 
@@ -636,12 +433,6 @@ head(rankall("heart attack", 20), 10)
 tail(rankall("pneumonia", "worst"), 3)
 ```
 
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
     ##    Hospital.Name                                State
     ## WI "MAYO CLINIC HEALTH SYSTEM - NORTHLAND, INC" "WI" 
     ## WV "PLATEAU MEDICAL CENTER"                     "WV" 
@@ -650,12 +441,6 @@ tail(rankall("pneumonia", "worst"), 3)
 ``` r
 tail(rankall("heart failure"), 10)
 ```
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
-
-    ## Warning in lapply(X = X, FUN = FUN, ...): NAs introduced by coercion
 
     ##    Hospital.Name                                                      
     ## TN "WELLMONT HAWKINS COUNTY MEMORIAL HOSPITAL"                        
